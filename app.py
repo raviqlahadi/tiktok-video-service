@@ -23,7 +23,8 @@ async def fetch_trending_videos():
     async with TikTokApi() as api:
         await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3)
         videos = []
-        async for video in api.trending.videos(count=30):
+        logging.info(f'token: {ms_token}')
+        async for video in api.trending.videos(count=10):
             videos.append(video.as_dict)
         return videos
 
