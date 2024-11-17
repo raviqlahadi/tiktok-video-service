@@ -5,6 +5,7 @@ import asyncio
 import logging
 from TikTokApi import TikTokApi
 from dotenv import load_dotenv
+from playwright.sync_api import sync_playwright
 
 # Set up logging to debug and see detailed output
 logging.basicConfig(level=logging.DEBUG)
@@ -46,9 +47,35 @@ async def fetch_videos_by_keyword(keyword):
             videos.append(video.as_dict)
         return videos
 
+# Playwright health check function
+def playwright_health_check():
+    try:
+        # Check if Playwright can launch a browser and open a page
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)  # Run headless for health check
+            page = browser.new_page()
+            page.goto("https://www.google.com")
+            page_title = page.title()
+            browser.close()
+
+        # If the page title was successfully retrieved, Playwright is working fine
+        return {"status": "success", "message": f"Playwright is working. Page title: {page_title}"}, 200
+
+    except Exception as e:
+        # If there's an error during the Playwright check
+        return {"status": "error", "message": f"Playwright health check failed: {str(e)}"}, 500
+
+
 @app.route('/', methods=['GET'])
 def health_check():
     return jsonify({"message": "Gunicorn server is running!"}), 200
+
+# Playwright health check route
+@app.route('/playwright', methods=['GET'])
+def playwright_health():
+    # Run Playwright health check as part of this route
+    playwright_status, status_code = playwright_health_check()
+    return jsonify(playwright_status), status_code
 
 # Route for fetching trending videos
 @app.route('/api/trending', methods=['GET'])
