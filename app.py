@@ -46,6 +46,10 @@ async def fetch_videos_by_keyword(keyword):
             videos.append(video.as_dict)
         return videos
 
+@app.route('/', methods=['GET'])
+def health_check():
+    return jsonify({"message": "Gunicorn server is running!"}), 200
+
 # Route for fetching trending videos
 @app.route('/api/trending', methods=['GET'])
 def trending_videos():
