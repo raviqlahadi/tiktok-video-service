@@ -1,6 +1,3 @@
-Here’s a correctly formatted README.md with proper Markdown rendering:
-
-```markdown
 # TikTok Video Fetching Microservice
 
 A Python microservice for dynamically retrieving TikTok videos based on trending topics, hashtags, or general search queries. This service acts as a backend data provider for the TikTok Video App.
