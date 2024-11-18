@@ -27,17 +27,31 @@ This microservice fetches data in real-time from TikTok's platform. It does not 
 - **Response Example**:
   ```json
   {
-    "videos": [
-      {
-        "id": "12345",
-        "play_url": "https://example.com/video.mp4",
-        "description": "Trending video description",
-        "username": "trending_user",
-        "tags": ["trending", "funny"],
-        "create_date": "2024-11-18"
-      }
-    ]
-  }
+        "id": "7428543665926180103",
+        "description": "Video Desc",
+        "author": {
+            "nickname": "Username",
+            "uniqueId": "User unique id",
+            ...
+        },
+        "stats": {
+            "playCount": 27200000,
+            ...
+        },
+        "hashtags": [
+            {
+                "id": "17584774",
+                "title": "hashtag"
+            }
+        ],
+        "video": {
+            "url": "video url",
+            "width": 720,
+            "height": 1280,
+            "duration": 75
+        },
+        ...
+    }
   ```
 
 ### 2. Search by Hashtag
@@ -53,17 +67,31 @@ This microservice fetches data in real-time from TikTok's platform. It does not 
 - **Response Example**:
   ```json
   {
-    "videos": [
-      {
-        "id": "67890",
-        "play_url": "https://example.com/video.mp4",
-        "description": "Food journey",
-        "username": "foodie_user",
-        "tags": ["food", "delicious"],
-        "create_date": "2024-11-18"
-      }
-    ]
-  }
+        "id": "7428543665926180103",
+        "description": "Video Desc",
+        "author": {
+            "nickname": "Username",
+            "uniqueId": "User unique id",
+            ...
+        },
+        "stats": {
+            "playCount": 27200000,
+            ...
+        },
+        "hashtags": [
+            {
+                "id": "17584774",
+                "title": "hashtag"
+            }
+        ],
+        "video": {
+            "url": "video url",
+            "width": 720,
+            "height": 1280,
+            "duration": 75
+        },
+        ...
+    }
   ```
 ---
 
