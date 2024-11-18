@@ -135,30 +135,7 @@ This microservice fetches data in real-time from TikTok's platform. It does not 
 
 ---
 
-## Example Usage
 
-### Search for Videos by Hashtag
-```bash
-curl "http://localhost:5000/category?hashtag=travel"
-```
-
-**Response**:
-```json
-{
-  "videos": [
-    {
-      "id": "99999",
-      "play_url": "https://example.com/video.mp4",
-      "description": "Travel adventures",
-      "username": "traveler_user",
-      "tags": ["travel", "adventure"],
-      "create_date": "2024-11-18"
-    }
-  ]
-}
-```
-
----
 
 ## Future Enhancements
 
