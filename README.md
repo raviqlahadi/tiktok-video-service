@@ -8,7 +8,6 @@ A Python microservice for dynamically retrieving TikTok videos based on trending
 
 - **Trending Videos**: Fetches the latest trending videos on TikTok.
 - **Search by Hashtag**: Retrieves videos associated with specific hashtags.
-- **Search by Query**: Allows custom searches for TikTok content.
 - **JSON Responses**: Delivers structured JSON data, including metadata and playable video URLs.
 
 ---
